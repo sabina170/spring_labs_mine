@@ -30,4 +30,6 @@ public class QueryDemo implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
+        System.out.println(orderRepository.findAllByCustomer_Email("lorwell7d@ebay.com").get(0));
+    }
     }

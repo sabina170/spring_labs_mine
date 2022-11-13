@@ -20,4 +20,12 @@ public class Payment extends BaseEntity {
     private BigDecimal paidPrice;
     @Enumerated(EnumType.STRING)
     private PaymentMethod paymentMethod;
+
+    @Override
+    public String toString() {
+        return "Payment{" +
+                "paidPrice=" + paidPrice +
+                ", paymentMethod=" + paymentMethod +
+                '}';
+    }
 }

@@ -20,4 +20,14 @@ public class Address {
     @ManyToOne
     private Customer customer;
 
+    @Override
+    public String toString() {
+        return "Address{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", street='" + street + '\'' +
+                ", zipCode='" + zipCode + '\'' +
+                ", customer=" + customer +
+                '}';
+    }
 }
