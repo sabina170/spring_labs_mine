@@ -50,6 +50,6 @@ public interface OrderRepository extends JpaRepository<Order, Long> {
     //Write a JPQL query to get all orders by totalPrice and paidPrice are not equals and discount is not null
 
     @Query("SELECT o FROM Order o WHERE o.paidPrice <> o.totalPrice AND o.cart.discount IS NOT NULL")
-    List<Order> retrieveAllBetweenTotalPriceAndPaidPriceIsNotSameAndDiscountIsNotNull();
+    List<Order> retrieveAllByPaidPriceAndTotalPriceAEqualsAndCartDiscountIdIsNull();
 
 }
