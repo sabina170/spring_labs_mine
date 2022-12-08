@@ -1,6 +1,7 @@
 package com.cydeo.lab08rest.controller;
 
 import com.cydeo.lab08rest.dto.ProductDTO;
+import com.cydeo.lab08rest.dto.ProductRequest;
 import com.cydeo.lab08rest.model.ResponseWrapper;
 import com.cydeo.lab08rest.service.ProductService;
 import org.springframework.http.HttpStatus;
@@ -35,11 +36,22 @@ public class ProductController {
     }
 
     @PostMapping("/categoryandprice")
-    public ResponseEntity<ResponseWrapper> retrieveProductByCategoryAndPrice(@RequestBody ProductDTO productDTO) {
+    public ResponseEntity<ResponseWrapper> retrieveProductByCategoryAndPrice(@RequestBody ProductRequest productRequest) {
 
-        return ResponseEntity.ok(new ResponseWrapper("Product is successfully retrieved", productService.retrieveProductByCategoryAndPrice(productDTO), HttpStatus.OK));
+        return ResponseEntity.ok(new ResponseWrapper("Product is successfully retrieved",
+                productService.retrieveByName(name), HttpStatus.OK));
     }
 
+    @GetMapping("/{name}")
+    public ResponseEntity<ResponseWrapper> retrieveProductByName(@PathVariable("name") String name) {
+        return ResponseEntity.ok(new ResponseWrapper("Products are successfully retrieved", productService.retrieveByName(name), HttpStatus.OK));
+    }
+
+    @GetMapping("/top3")
+    public ResponseEntity<ResponseWrapper> retrieveProductByTup3ProductByPrice(){
+        return ResponseEntity.ok(new ResponseWrapper("Products are successfully retrieved",
+                productService.retrieveProductByTup3ProductByPrice(), HttpStatus.OK));
+    }
 
 }
 

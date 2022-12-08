@@ -10,5 +10,9 @@ public interface ProductService {
 
     ProductDTO createProduct(ProductDTO productDTO);
 
-    ProductDTO retrieveProductByCategoryAndPrice(ProductDTO productDTO);
+    ProductDTO retrieveProductByCategoryAndPrice();
+
+    ProductDTO retrieveByName(String name);
+
+    List<ProductDTO> retrieveProductByTup3ProductByPrice();
 }
