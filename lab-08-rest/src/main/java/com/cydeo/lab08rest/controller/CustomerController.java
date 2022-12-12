@@ -33,11 +33,11 @@ public class CustomerController {
 
     @PostMapping
     public ResponseEntity<ResponseWrapper> createCustomer(@RequestBody CustomerDTO customerDTO){
-        return ResponseEntity.ok(new ResponseWrapper("Csutomer is created",
+        return ResponseEntity.ok(new ResponseWrapper("Customer is created",
                 customerService.create(customerDTO), HttpStatus.OK));
     }
 
-    @GetMapping("/{name}")
+    @GetMapping("/{email}")
     public ResponseEntity<ResponseWrapper> getCustomerByEmail(@PathVariable("email") String email){
         return ResponseEntity.ok(new ResponseWrapper("Customer is retrieved",
                 customerService.retrieveByEmail(email), HttpStatus.OK));

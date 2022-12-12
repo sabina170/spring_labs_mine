@@ -38,22 +38,26 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public CustomerDTO update(CustomerDTO customerDTO) {
-//        Customer customer = customerRepository.save(mapperUtil.convert(customerDTO, new Customer()));
-//        return mapperUtil.convert(customer, new CustomerDTO());
+////        Customer customer = customerRepository.save(mapperUtil.convert(customerDTO, new Customer()));
+////        return mapperUtil.convert(customer, new CustomerDTO());
+//
+//        //assume that userName - is unique field:
+//        Customer customer = customerRepository.findByUserName(customerDTO.getUserName());
+//        //all fields will assigne:
+//        //customerRepository.save(mapperUtil.convert(customer, new CustomerDTO());
+//
+//        //i want to set specific field:
+//        customer.setEmail(customerDTO.getEmail());
+//        customer.setFirstName(customerDTO.getFirstName());
+//        customer.setLastName(customerDTO.getLastName());
+//
+//        Customer savedCustomer = customerRepository.save(customer);
 
-        //assume that userName - is unique field:
-        Customer customer = customerRepository.findByUserName(customerDTO.getUserName());
-        //all fields will assigne:
-        //customerRepository.save(mapperUtil.convert(customer, new CustomerDTO());
+//        return mapperUtil.convert(savedCustomer, new CustomerDTO());
 
-        //i want to set specific field:
-        customer.setEmail(customerDTO.getEmail());
-        customer.setFirstName(customerDTO.getFirstName());
-        customer.setLastName(customerDTO.getLastName());
+        Customer customer = customerRepository.save(mapperUtil.convert(customerDTO, new Customer()));
+        return mapperUtil.convert(customer, new CustomerDTO());
 
-        Customer savedCustomer = customerRepository.save(customer);
-
-        return mapperUtil.convert(savedCustomer, new CustomerDTO());
     }
 
     @Override
